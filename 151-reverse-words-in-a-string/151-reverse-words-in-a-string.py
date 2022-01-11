@@ -1,18 +1,10 @@
 class Solution:
     def reverseWords(self, s: str) -> str:
-        word = []
-        #length = len(s)
-        spaces = [' ']
-        
-        i = 0
-        
-        while i < len(s):
-            if s[i] not in spaces:
-                word_start = i
-                while i < len(s) and s[i] not in spaces:
-                    i+=1
-                word.append(s[word_start:i])
-            i+=1
-        return " ".join(reversed(word))
+        word_list = s.split(' ')
+        result = ""
+        for index in range(len(word_list) - 1, -1, -1):
+            result = result + word_list[index]
+            result = result.strip() + " "
+        return result[:-1]
         
         
