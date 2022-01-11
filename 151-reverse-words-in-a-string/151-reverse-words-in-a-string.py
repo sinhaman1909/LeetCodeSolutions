@@ -5,7 +5,6 @@ class Solution:
         for index in range(len(word_list) - 1, -1, -1):
             result = result + word_list[index]
             result = result.strip() + " "
-        result = result.strip()
-        return result
+        return result[:-1]
         
         
