@@ -17,14 +17,10 @@ class Solution:
             return head
             
         itr = head
-        count = 0
-        
-        while itr:
-            if count == length - n - 1:
-                itr.next = itr.next.next
-                break
-            count += 1
+        for i in range(length - n - 1): 
             itr = itr.next
+            
+        itr.next = itr.next.next
         
         return head
             
