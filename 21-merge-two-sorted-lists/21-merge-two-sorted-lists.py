@@ -4,41 +4,18 @@
 #         self.val = val
 #         self.next = next
 class Solution:
-    def insertValue(data, head):
-        if head is None:
-            head = ListNode(data, None)
-            return
-        
-        else:
-            itr = head
-            while itr.next:
-                itr = itr.next
-
-            itr.next = ListNode(data, None)
-            
     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
-        itr1 = list1
-        itr2 = list2
-        data_list = []
-        head = ListNode()
+        head = curr = ListNode()
+        while list1 and list2:
+            if list1.val <= list2.val:
+                curr.next = list1
+                list1 = list1.next
         
-        while itr1:
-            data_list.append(itr1.val)
-            itr1 = itr1.next
-            
-        while itr2:
-            data_list.append(itr2.val)
-            itr2 = itr2.next
+            else:
+                curr.next = list2
+                list2 = list2.next  
+            curr = curr.next
+        curr.next = list1 or list2
         
-        data_list.sort()
-        
-        for data in data_list:
-            Solution.insertValue(data, head)
-            
         return head.next
-        
             
-        
-            
-        
-        
