@@ -8,31 +8,24 @@ class Solution:
         if head is None:
             return
         
-        if head.next is None:
-            return head
-        
-        n, tail = 1, head
+        length, tail = 1, head
 
         while tail.next:
             tail = tail.next
-            n += 1
+            length += 1
 
-        k = k % n
+        k = k % length
 
         if k == 0:
             return head
         
-        rotations = 0
-        while rotations < k:
-            itr = head.next
-            prev = head
-            while itr.next:
-                prev = prev.next
-                itr = itr.next
-            rotations += 1
-            prev.next = None
-            itr.next = head
-            head = itr
+        cur = head
+        
+        for i in range(length - k - 1):
+            cur = cur.next
+        newHead = cur.next
+        cur.next = None
+        tail.next = head
 
-        return head
+        return newHead
             
