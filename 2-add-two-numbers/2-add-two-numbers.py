@@ -17,14 +17,10 @@ class Solution:
         while l2:
             num2 = str(l2.val) + num2
             l2 = l2.next
-        print(num1, num2)
         num1 = int(num1)
         num2 = int(num2)
-        print(num1, num2)
-
         
         res = str(num1 + num2)
-        print(res)
         
         newHead = ListNode(int(res[-1]))
         itr = newHead
