@@ -3,7 +3,7 @@ BEGIN
   RETURN (
       # Write your MySQL query statement below.
       select
-      salary
+      ifnull(salary, NULL)
       from
       (select distinct salary,
       dense_rank() over(order by salary DESC) as num
