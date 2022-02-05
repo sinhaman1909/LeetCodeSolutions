@@ -21,7 +21,7 @@ class Solution:
         if len(nums) == 0:
             return
         
-        nums = sorted(nums)
+        nums.sort()
         newHead = ListNode()
         itr = newHead
         for i,num in enumerate(nums):
